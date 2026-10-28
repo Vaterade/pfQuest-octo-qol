@@ -83,6 +83,12 @@ cost money and rewards with more than one choice, and by default skips grey ques
 - `/pfqauto lowlevel on | off` skips or accepts grey quests
 - `/pfqauto runecloth on | off` includes the repeatable Additional Runecloth donations
 
+## Settings window
+
+All of these settings are also in pfQuest's settings window, each module under its own
+heading, with pfQuest's own settings. The window is arranged in three balanced columns and
+shrinks to fit the screen.
+
 ## Changes from the pfQuest-octo modules
 
 - Nameplates come from ClassicAPI's nameplate events instead of guessing them from
@@ -114,5 +120,7 @@ cost money and rewards with more than one choice, and by default skips grey ques
   reward without asking, leaves turn-ins that cost money to you, stops instead of retrying a
   quest that just failed, and finds low level quests from their level instead of the words
   "low level" in the title.
-- The settings window entries are only added when pfQuest hasn't built its window yet.
-  The slash commands work either way.
+- The settings window keeps pfQuest's own builder, so sliders such as Arrow Scale still work,
+  and only arranges the entries into columns afterwards. The old module replaced the builder
+  with a copy that had no sliders. If pfQuest built its window before this addon loaded, it
+  is built again after login so this addon's settings appear.
