@@ -152,13 +152,13 @@ function QoL.Debounce(delay, fn)
   return function() elapsed = 0 end
 end
 
--- pfQuest builds its settings window from pfQuest_defconfig as soon as it
--- loads, which can be before this addon does; entries added after that never
--- show. Add ours only while it hasn't been built (its first entry is the
--- global frame pfQuestConfig1). The slash commands cover the settings either way.
+-- Add entries to pfQuest's settings window. pfQuest builds the window from
+-- pfQuest_defconfig as soon as it loads, which can be before this addon does
+-- (its first entry is then already the global frame pfQuestConfig1);
+-- settings.lua rebuilds it after login in that case.
 function QoL.AddConfig(entries)
   if pfQuestConfig1 then
-    return
+    QoL.configBuiltEarly = true
   end
   for _, e in ipairs(entries) do
     table.insert(pfQuest_defconfig, e)

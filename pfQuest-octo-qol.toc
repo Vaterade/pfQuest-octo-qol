@@ -14,3 +14,4 @@ announce.lua
 loot.lua
 worldmap.lua
 autoquest.lua
+settings.lua
