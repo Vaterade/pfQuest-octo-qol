@@ -37,6 +37,19 @@ and a rude message. When you revive it goes back to your quests.
 The old module's arrow scale setting is not ported: brues-code's pfQuest has its own
 (Arrow Scale, in pfQuest's settings).
 
+## Objective announcements
+
+Tells your party when you finish a quest objective, with links to the quest and the item:
+"Finished [Harpy Feather] for [Gather Feathers]." Optionally also every step: "[Harpy
+Feather] for [Gather Feathers] (5 left)". Both are off until you turn them on. Only sent
+while you're in a party.
+
+- `/pfqannounce finished on | off` announces finished objectives
+- `/pfqannounce remaining on | off` announces each step
+- `/pfqannounce item on | off` links the item in finished announcements, or names the
+  objective instead
+- `/pfqannounce test Harpy Feather: 8/8` shows what would be sent, in your chat only
+
 ## Changes from the pfQuest-octo modules
 
 - Nameplates come from ClassicAPI's nameplate events instead of guessing them from
@@ -48,5 +61,9 @@ The old module's arrow scale setting is not ported: brues-code's pfQuest has its
 - The corpse arrow shows even without a quest target, points using world coordinates, and
   puts pfQuest's arrow text back after you revive.
 - The party module no longer replaces the global Lua error handler.
+- Announcements read the quest log without changing its selection, take the quest and item
+  IDs from ClassicAPI, respect pfQuest's quest link setting, and are only sent for
+  objectives of quests in your log. They have their own `/pfqannounce` command instead of
+  hooking `/pfdb`.
 - The settings window entries are only added when pfQuest hasn't built its window yet.
   The slash commands work either way.
