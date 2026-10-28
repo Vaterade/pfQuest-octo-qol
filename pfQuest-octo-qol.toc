@@ -1,7 +1,7 @@
 ## Interface: 11200
 ## Title: |cff33ffccpf|cffffffffQuest |cffcccccc[Octo QoL]
 ## Author: Shadowtoots, Bennylavaa, Roby_Brok; ported by Vaterade
-## Notes: Quest icons on nameplates, party members' quest progress in tooltips, and an arrow to your corpse, for pfQuest on OctoWoW. Requires ClassicAPI.
+## Notes: Quest icons on nameplates, party members' quest progress in tooltips, an arrow to your corpse, and objective announcements to your party, for pfQuest on OctoWoW. Requires ClassicAPI.
 ## Version: 1.0.0
 ## Dependencies: pfQuest
 ## OptionalDeps: pfQuest-octo-plus
@@ -10,3 +10,4 @@ core.lua
 nameplates.lua
 partyprogress.lua
 arrow.lua
+announce.lua
