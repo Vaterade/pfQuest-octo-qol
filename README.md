@@ -1,8 +1,9 @@
 # pfQuest [Octo QoL]
 
-Convenience modules for [pfQuest](https://github.com/brues-code/pfQuest) on OctoWoW,
-ported from the deleted `roby-brok/pfQuest-octo` pack. They were written by Shadowtoots for
-[Bennylavaa/pfQuest-turtle](https://github.com/Bennylavaa/pfQuest-turtle).
+Convenience modules for [pfQuest](https://github.com/brues-code/pfQuest) on OctoWoW. Most are
+ported from the deleted `roby-brok/pfQuest-octo` pack; they were written by Shadowtoots for
+[Bennylavaa/pfQuest-turtle](https://github.com/Bennylavaa/pfQuest-turtle). Survival tree
+tracking is new.
 
 Requires the ClassicAPI client mod. Meant to run with
 [pfQuest-octo-plus](https://github.com/Salahaja/pfQuest-octo-plus) as the database, but works
@@ -109,24 +110,43 @@ cost money and rewards with more than one choice, and by default skips grey ques
 
 ## Survival trees
 
-Turtle's Survival is a gathering skill: you cut wood from Simple Wood, Bright Wood, Shade
-Wood, Dead Wood, Tropical Wood and Star Wood trees. This tracks them on the world map and
-minimap like pfQuest's herbs and ore, with the Survival icon. By default it shows the trees
-within 100 points below your Survival skill, the way pfQuest's "auto" herbs and ore do, and
-follows your skill as it rises.
+Turtle's Survival is a gathering skill: you cut wood from trees, the way Herbalism picks
+herbs. This tracks those trees on the world map and minimap like pfQuest's herbs and ore,
+with the Survival icon. Hover a pin for the tree's name and zone.
+
+Tracking is off until you turn it on. By default it then shows only the trees within 100
+points below your Survival skill, the same rule as pfQuest's "auto" herbs and ore, and
+follows your skill as it rises. That also hides trees you've outgrown; `all` shows them.
 
 - `/pfqtrees on` tracks them, `/pfqtrees off` stops
 - `/pfqtrees auto` shows only the trees for your skill, `/pfqtrees all` shows every tree
-- `/pfqtrees` shows the state, your skill, and how many trees each skill level has
+- `/pfqtrees` shows the state, your Survival skill, and how many trees each skill level has
 
-The locations come from the pfQuest database, so they need pfQuest-octo-plus. Five trees
-have no locations there: Simple Wood on Blackstone Island, Bright Wood in Northwind and
-Balor, and Shade Wood in Grim Reaches and Gilneas.
+The same two choices are in pfQuest's settings window, under Survival Trees: *Track Survival
+Trees* and *Only Trees Within Your Survival Skill*.
 
-The skill each tree needs is a guess. The client lists six Survival requirements (5, 125,
-175, 225, 250, 270) but not which tree has which. Simple Wood is taken as 5, Bright Wood
-125, Shade Wood 175, Dead Wood 225, Tropical Wood 250 and Star Wood 270. Only the skill
-filter depends on it; `/pfqtrees all` shows every tree regardless.
+| Tree | Skill (guess) | Where | Spawns |
+|---|---|---|---|
+| Simple Wood Tree | 5 | The starting zones: Durotar, Mulgore, the Barrens, Teldrassil, Darkshore, Elwynn, Westfall, Duskwood, Redridge, Dun Morogh, Loch Modan, Tirisfal, Silverpine, Wetlands, Thalassian Highlands | 981 |
+| Bright Wood | 125 | Hillsbrad, Thousand Needles, Ashenvale, Stonetalon | 295 |
+| Shade Wood Tree | 175 | Stranglethorn, Arathi, Alterac, Badlands, Dustwallow, Desolace, Swamp of Sorrows, Hinterlands, Feralas | 473 |
+| Dead Wood Tree | 225 | Felwood | 380 |
+| Tropical Wood Tree | 250 | Moonwhisper Coast | 9 |
+| Star Wood Tree | 270 | Moonwhisper Coast | 305 |
+
+The locations come from the pfQuest database, so they need pfQuest-octo-plus. Five trees are
+in it without locations, so they get no pins: Simple Wood on Blackstone Island, Bright Wood
+in Northwind and Balor, and Shade Wood in Grim Reaches and Gilneas.
+
+**The skill levels are a guess.** The client lists six Survival requirements (5, 125, 175,
+225, 250, 270) but not which tree has which; that is server data. The table assigns them by
+the trees' zones, and Dead, Tropical and Star Wood could be in any order. Only the skill
+filter depends on it, and `/pfqtrees all` shows every tree regardless. A tree too high for
+you should say "Requires Survival" with the real number in its tooltip; the levels are the
+`TREES` table at the top of `trees.lua`.
+
+Your Survival skill is read from skill line 142. If `/pfqtrees` shows 0 on a character that
+has Survival, the client reports it under another ID.
 
 ## Settings window
 
