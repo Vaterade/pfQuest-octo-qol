@@ -1,0 +1,11 @@
+## Interface: 11200
+## Title: |cff33ffccpf|cffffffffQuest |cffcccccc[Octo QoL]
+## Author: Shadowtoots, Bennylavaa, Roby_Brok; ported by Vaterade
+## Notes: Quest icons on nameplates and party members' quest progress in tooltips, for pfQuest on OctoWoW. Requires ClassicAPI.
+## Version: 1.0.0
+## Dependencies: pfQuest
+## OptionalDeps: pfQuest-octo-plus
+
+core.lua
+nameplates.lua
+partyprogress.lua
