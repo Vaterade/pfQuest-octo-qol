@@ -1,6 +1,6 @@
 # pfQuest [Octo QoL]
 
-Two convenience modules for [pfQuest](https://github.com/brues-code/pfQuest) on OctoWoW,
+Convenience modules for [pfQuest](https://github.com/brues-code/pfQuest) on OctoWoW,
 ported from the deleted `roby-brok/pfQuest-octo` pack. They were written by Shadowtoots for
 [Bennylavaa/pfQuest-turtle](https://github.com/Bennylavaa/pfQuest-turtle).
 
@@ -27,6 +27,16 @@ as the old pfQuest-octo pack's, so party members still running that pack also wo
 - `/pfqparty sync` asks the party to resend
 - `/pfqparty test <unit name>` adds fake progress on a unit, to check the tooltip
 
+## Corpse arrow
+
+While you're a ghost, pfQuest's route arrow points at your corpse, with the distance in yards
+and a rude message. When you revive it goes back to your quests.
+
+- `/pfqarrow on | off` turns it on or off
+
+The old module's arrow scale setting is not ported: brues-code's pfQuest has its own
+(Arrow Scale, in pfQuest's settings).
+
 ## Changes from the pfQuest-octo modules
 
 - Nameplates come from ClassicAPI's nameplate events instead of guessing them from
@@ -35,6 +45,8 @@ as the old pfQuest-octo pack's, so party members still running that pack also wo
   every quest in the database on each update.
 - Names come from the client's locale instead of English only.
 - Turning party progress off also stops sending.
+- The corpse arrow shows even without a quest target, points using world coordinates, and
+  puts pfQuest's arrow text back after you revive.
 - The party module no longer replaces the global Lua error handler.
 - The settings window entries are only added when pfQuest hasn't built its window yet.
   The slash commands work either way.
