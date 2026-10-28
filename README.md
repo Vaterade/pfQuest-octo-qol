@@ -61,6 +61,18 @@ item. Alt-Click the pin again, or the x, to close it.
   (items with no known chance), `worlddrops` (hide items 200+ mobs drop), `equip`, `quest`,
   `starters`, `recipes`, `grey`, `white`
 
+## Continent pins
+
+pfQuest only draws its pins on zone maps. This draws them on the continent maps and the world
+view too, for every zone the client can place, Turtle's included. Utility pins (flight masters,
+innkeepers, banks and the like) show; other tracking pins would bury the continent and don't.
+Quests that are grey or too high for you are left off, following pfQuest's own settings.
+
+- `/pfqmap on | off` turns them on or off
+- `/pfqmap ctrl on | off` makes the pins ignore the mouse unless you hold Ctrl, so clicks
+  reach the map
+- `/pfqmap size <n>`, `/pfqmap utilitysize <n>` set the pin sizes (12 and 14)
+
 ## Changes from the pfQuest-octo modules
 
 - Nameplates come from ClassicAPI's nameplate events instead of guessing them from
@@ -80,5 +92,11 @@ item. Alt-Click the pin again, or the x, to close it.
   asks the server for items the client hasn't seen so their icons fill in, keeps each mob's
   drop list for the session instead of rebuilding it whenever the map opens, and is only
   offered on world map pins, since the panel lives on the world map.
+- Continent pins are placed from the client's own map data through ClassicAPI instead of
+  hand-written boundaries for the 47 original zones, use pfQuest's own pins, no longer resize
+  zone map pins, and redraw when the map or pins change instead of every 0.15 seconds. Pins
+  that land on the same spot are drawn once, for any city and zone rather than six fixed
+  pairs. The old module's quest filter settings were never applied by that pack and are left
+  out.
 - The settings window entries are only added when pfQuest hasn't built its window yet.
   The slash commands work either way.
