@@ -88,15 +88,6 @@ local function ContinentMapID(index)
   return continentIDs[index]
 end
 
--- the highest level of quest that still gives experience is grey below this
-local function GrayLevel(level)
-  if level <= 5 then return 0 end
-  if level <= 49 then return level - floor(level / 10) - 5 end
-  if level == 50 then return 40 end
-  if level <= 59 then return level - floor(level / 5) - 1 end
-  return level - 9
-end
-
 local function IsUtility(addon)
   for _, track in ipairs(UTILITY_TRACKS) do
     if string.find(addon, track, 1, true) then return true end
@@ -116,8 +107,8 @@ local function Wanted(node, level)
       local qlvl = tonumber(data.qlvl) or tonumber(data.lvl) or 0
       local min = tonumber(data.min) or 0
       if not complete then
-        if pfQuest_config["showlowlevel"] == "0" and qlvl > 0 and qlvl <= GrayLevel(level) then return nil end
-        if pfQuest_config["showlowlevel"] == "0" and min <= 1 and qlvl <= GrayLevel(level) then return nil end
+        if pfQuest_config["showlowlevel"] == "0" and qlvl > 0 and qlvl <= QoL.GrayLevel(level) then return nil end
+        if pfQuest_config["showlowlevel"] == "0" and min <= 1 and qlvl <= QoL.GrayLevel(level) then return nil end
         if min > level + (pfQuest_config["showhighlevel"] == "1" and 3 or 0) then return nil end
       end
     end

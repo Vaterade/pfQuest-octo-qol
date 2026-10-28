@@ -126,6 +126,15 @@ function QoL.BuildTargets(quests)
   return targets
 end
 
+-- quests at or below this level are grey (no experience) at the given level
+function QoL.GrayLevel(level)
+  if level <= 5 then return 0 end
+  if level <= 49 then return level - floor(level / 10) - 5 end
+  if level == 50 then return 40 end
+  if level <= 59 then return level - floor(level / 5) - 1 end
+  return level - 9
+end
+
 -- Returns a function that runs fn once calls to it have stopped for delay
 -- seconds. A login fires one QUEST_LOG_UPDATE per quest log entry, and
 -- rescanning on each of them froze the client in the old modules.
