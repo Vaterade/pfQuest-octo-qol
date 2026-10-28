@@ -228,7 +228,7 @@ local function AddPartyLines(tooltip, name, skipHeader)
       local r, g = 1, 1
       if perc <= 0.5 then g = perc * 2 else r = 2 - perc * 2 end
       local cr, cg, cb = ClassColor(line.player)
-      local player = string.format("|cff%02x%02x%02x%s|r", cr * 255, cg * 255, cb * 255, line.player)
+      local player = string.format("|cff%02x%02x%02x%s|r", floor(cr * 255), floor(cg * 255), floor(cb * 255), line.player)
       tooltip:AddLine(string.format("|cffaaaaaa- |r%s: %s (%d/%d)", player, line.objective, line.current, line.total), r, g, 0)
     end
   end

@@ -50,6 +50,17 @@ while you're in a party.
   objective instead
 - `/pfqannounce test Harpy Feather: 8/8` shows what would be sent, in your chat only
 
+## Rare loot panel
+
+World map and minimap pins of elites, rares and bosses show the mob's rank. Alt-Click one on
+the world map to open a panel of what it drops, with drop chances; hover an icon for the
+item. Alt-Click the pin again, or the x, to close it.
+
+- `/pfqloot` lists the filters and their state
+- `/pfqloot <filter> on | off` with the filters `pooled` (loot from shared pools), `unknown`
+  (items with no known chance), `worlddrops` (hide items 200+ mobs drop), `equip`, `quest`,
+  `starters`, `recipes`, `grey`, `white`
+
 ## Changes from the pfQuest-octo modules
 
 - Nameplates come from ClassicAPI's nameplate events instead of guessing them from
@@ -65,5 +76,9 @@ while you're in a party.
   IDs from ClassicAPI, respect pfQuest's quest link setting, and are only sent for
   objectives of quests in your log. They have their own `/pfqannounce` command instead of
   hooking `/pfdb`.
+- The loot panel's filters use ClassicAPI's item class IDs instead of English type names,
+  asks the server for items the client hasn't seen so their icons fill in, keeps each mob's
+  drop list for the session instead of rebuilding it whenever the map opens, and is only
+  offered on world map pins, since the panel lives on the world map.
 - The settings window entries are only added when pfQuest hasn't built its window yet.
   The slash commands work either way.
