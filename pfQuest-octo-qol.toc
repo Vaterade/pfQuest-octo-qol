@@ -1,7 +1,7 @@
 ## Interface: 11200
 ## Title: |cff33ffccpf|cffffffffQuest |cffcccccc[Octo QoL]
 ## Author: Shadowtoots, Bennylavaa, Roby_Brok; ported by Vaterade
-## Notes: Quest icons on nameplates, party members' quest progress in tooltips, an arrow to your corpse, objective announcements to your party, a rare loot panel, pins on continent maps, and quest automation, for pfQuest on OctoWoW. Requires ClassicAPI.
+## Notes: Quest icons on nameplates, party members' quest progress in tooltips, an arrow to your corpse, objective announcements to your party, a rare loot panel, pins on continent maps, quest automation, and Survival tree tracking, for pfQuest on OctoWoW. Requires ClassicAPI.
 ## Version: 1.0.0
 ## Dependencies: pfQuest
 ## OptionalDeps: pfQuest-octo-plus
@@ -14,4 +14,5 @@ announce.lua
 loot.lua
 worldmap.lua
 autoquest.lua
+trees.lua
 settings.lua

@@ -19,17 +19,18 @@ with any pfQuest database.
 | [Rare loot panel](#rare-loot-panel) | `loot.lua` | Rank on elite, rare and boss pins; Alt-Click for their drops | `/pfqloot` | on |
 | [Continent pins](#continent-pins) | `worldmap.lua` | pfQuest's pins on the continent and world maps | `/pfqmap` | on |
 | [Quest automation](#quest-automation) | `autoquest.lua` | Accepts and turns in quests when you talk to an NPC | `/pfqauto` | off |
+| [Survival trees](#survival-trees) | `trees.lua` | Tracks the trees Survival cuts wood from, like herbs and ore | `/pfqtrees` | off |
 | [Settings window](#settings-window) | `settings.lua` | All of the above in pfQuest's settings, in three columns | | on |
 
 `core.lua` holds what the modules share. Every command without arguments shows its state
 and options.
 
-Each module comes from a file of the old pfQuest-octo pack: `pfQuest-nameplates.lua`,
-`pfQuest-partyprogress.lua`, `pfquest-arrow.lua`, `pfQuest-announce.lua`,
-`pfQuest-lootpanel.lua` with `pfQuest-rareinfo.lua`, `pfQuest-worldmap.lua`,
-`pfquest-questlog.lua` and `pfQuest-config.lua`. The only part not ported is the arrow scale
-setting from `pfquest-arrow.lua`, which brues-code's pfQuest has itself. What changed in each
-port is listed [below](#changes-from-the-pfquest-octo-modules).
+Survival trees is new. Every other module comes from a file of the old pfQuest-octo pack:
+`pfQuest-nameplates.lua`, `pfQuest-partyprogress.lua`, `pfquest-arrow.lua`,
+`pfQuest-announce.lua`, `pfQuest-lootpanel.lua` with `pfQuest-rareinfo.lua`,
+`pfQuest-worldmap.lua`, `pfquest-questlog.lua` and `pfQuest-config.lua`. The only part not
+ported is the arrow scale setting from `pfquest-arrow.lua`, which brues-code's pfQuest has
+itself. What changed in each port is listed [below](#changes-from-the-pfquest-octo-modules).
 
 ## Nameplate quest icons
 
@@ -105,6 +106,27 @@ cost money and rewards with more than one choice, and by default skips grey ques
 - `/pfqauto on | off` turns it on or off
 - `/pfqauto lowlevel on | off` skips or accepts grey quests
 - `/pfqauto runecloth on | off` includes the repeatable Additional Runecloth donations
+
+## Survival trees
+
+Turtle's Survival is a gathering skill: you cut wood from Simple Wood, Bright Wood, Shade
+Wood, Dead Wood, Tropical Wood and Star Wood trees. This tracks them on the world map and
+minimap like pfQuest's herbs and ore, with the Survival icon. By default it shows the trees
+within 100 points below your Survival skill, the way pfQuest's "auto" herbs and ore do, and
+follows your skill as it rises.
+
+- `/pfqtrees on` tracks them, `/pfqtrees off` stops
+- `/pfqtrees auto` shows only the trees for your skill, `/pfqtrees all` shows every tree
+- `/pfqtrees` shows the state, your skill, and how many trees each skill level has
+
+The locations come from the pfQuest database, so they need pfQuest-octo-plus. Five trees
+have no locations there: Simple Wood on Blackstone Island, Bright Wood in Northwind and
+Balor, and Shade Wood in Grim Reaches and Gilneas.
+
+The skill each tree needs is a guess. The client lists six Survival requirements (5, 125,
+175, 225, 250, 270) but not which tree has which. Simple Wood is taken as 5, Bright Wood
+125, Shade Wood 175, Dead Wood 225, Tropical Wood 250 and Star Wood 270. Only the skill
+filter depends on it; `/pfqtrees all` shows every tree regardless.
 
 ## Settings window
 
