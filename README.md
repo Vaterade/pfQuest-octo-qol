@@ -8,6 +8,29 @@ Requires the ClassicAPI client mod. Meant to run with
 [pfQuest-octo-plus](https://github.com/Salahaja/pfQuest-octo-plus) as the database, but works
 with any pfQuest database.
 
+## Modules
+
+| Module | File | What it does | Command | Default |
+|---|---|---|---|---|
+| [Nameplate quest icons](#nameplate-quest-icons) | `nameplates.lua` | Sword or bag icon on mobs your quests need | `/pfqnp` | on |
+| [Party quest progress](#party-quest-progress) | `partyprogress.lua` | Party members' objective counts in tooltips | `/pfqparty` | on |
+| [Corpse arrow](#corpse-arrow) | `arrow.lua` | Route arrow points at your corpse while you're a ghost | `/pfqarrow` | on |
+| [Objective announcements](#objective-announcements) | `announce.lua` | Tells your party about finished objectives | `/pfqannounce` | off |
+| [Rare loot panel](#rare-loot-panel) | `loot.lua` | Rank on elite, rare and boss pins; Alt-Click for their drops | `/pfqloot` | on |
+| [Continent pins](#continent-pins) | `worldmap.lua` | pfQuest's pins on the continent and world maps | `/pfqmap` | on |
+| [Quest automation](#quest-automation) | `autoquest.lua` | Accepts and turns in quests when you talk to an NPC | `/pfqauto` | off |
+| [Settings window](#settings-window) | `settings.lua` | All of the above in pfQuest's settings, in three columns | | on |
+
+`core.lua` holds what the modules share. Every command without arguments shows its state
+and options.
+
+Each module comes from a file of the old pfQuest-octo pack: `pfQuest-nameplates.lua`,
+`pfQuest-partyprogress.lua`, `pfquest-arrow.lua`, `pfQuest-announce.lua`,
+`pfQuest-lootpanel.lua` with `pfQuest-rareinfo.lua`, `pfQuest-worldmap.lua`,
+`pfquest-questlog.lua` and `pfQuest-config.lua`. The only part not ported is the arrow scale
+setting from `pfquest-arrow.lua`, which brues-code's pfQuest has itself. What changed in each
+port is listed [below](#changes-from-the-pfquest-octo-modules).
+
 ## Nameplate quest icons
 
 A sword on a mob your quests need killed, a bag on one that drops an item they need.
