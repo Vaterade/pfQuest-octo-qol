@@ -73,6 +73,16 @@ Quests that are grey or too high for you are left off, following pfQuest's own s
   reach the map
 - `/pfqmap size <n>`, `/pfqmap utilitysize <n>` set the pin sizes (12 and 14)
 
+## Quest automation
+
+Off until you turn it on. Talking to an NPC then turns in your finished quests and accepts
+the ones it offers. Hold Shift while talking to do it by hand. It leaves to you turn-ins that
+cost money and rewards with more than one choice, and by default skips grey quests.
+
+- `/pfqauto on | off` turns it on or off
+- `/pfqauto lowlevel on | off` skips or accepts grey quests
+- `/pfqauto runecloth on | off` includes the repeatable Additional Runecloth donations
+
 ## Changes from the pfQuest-octo modules
 
 - Nameplates come from ClassicAPI's nameplate events instead of guessing them from
@@ -98,5 +108,11 @@ Quests that are grey or too high for you are left off, following pfQuest's own s
   that land on the same spot are drawn once, for any city and zone rather than six fixed
   pairs. The old module's quest filter settings were never applied by that pack and are left
   out.
+- Quest automation reads gossip quests through ClassicAPI instead of parsing the list as the
+  later clients' (title, level, low-level) triples, which picked the wrong quests on 1.12. It
+  only opens finished quests instead of the first one you have with that NPC, takes a single
+  reward without asking, leaves turn-ins that cost money to you, stops instead of retrying a
+  quest that just failed, and finds low level quests from their level instead of the words
+  "low level" in the title.
 - The settings window entries are only added when pfQuest hasn't built its window yet.
   The slash commands work either way.
