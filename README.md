@@ -9,6 +9,13 @@ Requires the ClassicAPI client mod. Meant to run with
 [pfQuest-octo-plus](https://github.com/Salahaja/pfQuest-octo-plus) as the database, but works
 with any pfQuest database.
 
+## Installing
+
+Download `pfQuest-octo-qol-vX.Y.Z-classic.zip` from the latest release on the
+[Releases page](https://github.com/Vaterade/pfQuest-octo-qol/releases) and unzip it into
+`Interface/AddOns/`, so there is a `pfQuest-octo-qol` folder with `pfQuest-octo-qol.toc` directly inside.
+Changes in each version are in `CHANGELOG.md`.
+
 ## Modules
 
 | Module | File | What it does | Command | Default |
